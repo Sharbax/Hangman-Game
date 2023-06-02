@@ -171,15 +171,15 @@ lettersArray.forEach(letter => {
 
     // Function To Check If The Word Has Been Fully Guessed
     function isWordGuessed() {
-        
-        for (let span of guessSpans) {
-            
-            if(span.innerHTML === '') {
-                
-                return false;
-            }
+        for (let i = 0; i < guessSpans.length; i++) {
+            const span = guessSpans[i];
+            const spanText = span.innerHTML.trim();
+
+            if (spanText === '' && lettersAndSpace[i] !== ' ') {
+            return false;
         }
-        return true;
+    }
+    return true;
     }
 
     // End Game Function 
